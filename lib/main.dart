@@ -2,6 +2,7 @@ import 'package:car_tracking/firebase_options.dart';
 import 'package:car_tracking/pages/HomePage.dart';
 // import 'package:car_tracking/pages/HomePage.dart';
 import 'package:car_tracking/pages/details_page.dart';
+import 'package:car_tracking/pages/reg_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: true,
-      home: HomePage()
+      home: DetailsPage(carId: 'carId3',)
     );
   }
 }

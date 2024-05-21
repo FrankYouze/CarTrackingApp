@@ -101,8 +101,8 @@ class RegPage extends StatelessWidget {
                 ),
                 MyButton(
                   text: "Register",
-                  onTap: () {
-                    _databaseRef.child(IDcon.text)
+                  onTap: () async {
+                  await  _databaseRef.child(IDcon.text)
                        .set({
                           "truckId": IDcon.text,
                           "driverName": driverCon.text,

@@ -19,6 +19,7 @@ class DetailsPage extends StatefulWidget {
 class _DetailsPageState extends State<DetailsPage> {
    List<GraphPlotter> graphData = [];
    Map<dynamic,dynamic> carsData = {};
+   Map<dynamic,dynamic> locationDetails = {};
    String _carId = "";
    
 
@@ -41,12 +42,14 @@ class _DetailsPageState extends State<DetailsPage> {
         carsData = Map<String, dynamic>.from(
             event.snapshot.value as Map<dynamic, dynamic>);
           //  print(carsData.keys.toString());
-          print(carsData["oilLevel"]);
+        
+          print(carsData["location"]);
+          
       });
     });
   }
 
-  Future<void> fetchGraphData() async {
+  Future<void> fetchData() async {
    // DataSnapshot snapshot = await _database.child('graphData').once();
 
    _database.once().then((event) {
@@ -117,7 +120,7 @@ body: Center(child:SingleChildScrollView(
                   padding: const EdgeInsets.symmetric(horizontal:20.0),
                   child: Row(
                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [Text("init oilLevel",style: TextStyle(fontSize: 20),),SizedBox(width: 50),Text(carsData["oilLevel"],style: TextStyle(fontSize: 20),)],),
+                    children: [Text("init oilLevel",style: TextStyle(fontSize: 20),),SizedBox(width: 50),Text("oilLevel",style: TextStyle(fontSize: 20),)],),
                 ),
                    Padding(
                   padding: const EdgeInsets.symmetric(horizontal:20.0),
@@ -129,7 +132,7 @@ body: Center(child:SingleChildScrollView(
                   padding: const EdgeInsets.symmetric(horizontal:20.0),
                   child: Row(
                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [Text("driver",style: TextStyle(fontSize: 20),),SizedBox(width: 50),Text(carsData['driverName'],style: TextStyle(fontSize: 20),)],),
+                    children: [Text("driver",style: TextStyle(fontSize: 20),),SizedBox(width: 50),Text('driverName',style: TextStyle(fontSize: 20),)],),
                 ),
               
                  // MyTextField(controller: TextEditingController(), myText: "something", obscu: false),
