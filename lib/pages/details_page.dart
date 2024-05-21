@@ -1,5 +1,7 @@
 // import 'dart:html';
 
+import 'dart:ffi';
+
 import 'package:car_tracking/components/chart.dart';
 import 'package:car_tracking/components/my_button.dart';
 import 'package:car_tracking/components/my_textfield.dart';
@@ -17,7 +19,7 @@ class DetailsPage extends StatefulWidget {
 }
 
 class _DetailsPageState extends State<DetailsPage> {
-   List<GraphPlotter> graphData = [];
+   List<double> coData = [];
    Map<dynamic,dynamic> carsData = {};
    Map<dynamic,dynamic> locationDetails = {};
    String _carId = "";
@@ -42,8 +44,14 @@ class _DetailsPageState extends State<DetailsPage> {
         carsData = Map<String, dynamic>.from(
             event.snapshot.value as Map<dynamic, dynamic>);
           //  print(carsData.keys.toString());
-        
-          print(carsData["location"]);
+         locationDetails = carsData["location"];
+        print(locationDetails);
+        locationDetails.forEach((key, value) {
+          print(value);
+          coData.add(value.toDouble());
+          print(coData.length);
+         });
+          //print(carsData["oilLevel"]);
           
       });
     });
@@ -141,7 +149,8 @@ body: Center(child:SingleChildScrollView(
                     text: "Location",
                     onTap: (){
   
-                      launchGoogleMaps(-6.776012, 39.178326);
+                      launchGoogleMaps(coData[0],coData[1]);
+                      print(coData[1]);
                   }),
 
 
