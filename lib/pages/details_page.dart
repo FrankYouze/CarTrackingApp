@@ -44,6 +44,7 @@ class _DetailsPageState extends State<DetailsPage> {
         carsData = Map<String, dynamic>.from(
             event.snapshot.value as Map<dynamic, dynamic>);
           //  print(carsData.keys.toString());
+          print(carsData['cur oilLeve'].toString());
          locationDetails = carsData["location"];
         print(locationDetails);
         locationDetails.forEach((key, value) {
@@ -128,19 +129,19 @@ body: Center(child:SingleChildScrollView(
                   padding: const EdgeInsets.symmetric(horizontal:20.0),
                   child: Row(
                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [Text("init oilLevel",style: TextStyle(fontSize: 20),),SizedBox(width: 50),Text("oilLevel",style: TextStyle(fontSize: 20),)],),
+                    children: [Text("init oilLevel",style: TextStyle(fontSize: 20),),SizedBox(width: 50),Text(carsData["oilLevel"] ?? "",style: TextStyle(fontSize: 20),)],),
                 ),
                    Padding(
                   padding: const EdgeInsets.symmetric(horizontal:20.0),
                   child: Row(
                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [Text("cur oilLevel",style: TextStyle(fontSize: 20),),SizedBox(width: 50),Text("Car ID",style: TextStyle(fontSize: 20),)],),
+                    children: [Text("cur oilLevel",style: TextStyle(fontSize: 20),),SizedBox(width: 50),Text(carsData['cur oilLeve'] ?? " ",style: TextStyle(fontSize: 20),)],),
                 ),
                  Padding(
                   padding: const EdgeInsets.symmetric(horizontal:20.0),
                   child: Row(
                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [Text("driver",style: TextStyle(fontSize: 20),),SizedBox(width: 50),Text('driverName',style: TextStyle(fontSize: 20),)],),
+                    children: [Text("driver",style: TextStyle(fontSize: 20),),SizedBox(width: 50),Text(carsData['driverName'] ?? "",style: TextStyle(fontSize: 20),)],),
                 ),
               
                  // MyTextField(controller: TextEditingController(), myText: "something", obscu: false),
